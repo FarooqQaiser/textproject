@@ -60,14 +60,6 @@ header {
   width: 30%;
 }
 
-.disableBooks {
-  display: none;
-}
-
-.disableSearchedBook {
-  display: none;
-}
-
 .books {
   text-align: center;
   margin-bottom: 2%;
@@ -92,6 +84,10 @@ header {
   border-radius: 2%;
 }
 
+.book h2 {
+  text-align: center;
+}
+
 .openBookDetails {
   display: flex;
   justify-content: center;
@@ -103,15 +99,15 @@ header {
   height: 40px;
   color: white;
   border: none;
-  border-radius: 8%;
+  border-radius: 8px;
   cursor: pointer;
   margin: 0;
 }
 
 .searchedBook {
   text-align: start;
-  width: 30%;
-  padding: 2%;
+  width: 17%;
+  padding: 1%;
   background-color: #272727;
   border-radius: 2%;
 }
@@ -120,6 +116,10 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.searchedBook div h2 {
+  text-align: center;
 }
 
 .openSearchedBookDetails {
@@ -133,9 +133,25 @@ header {
   height: 40px;
   color: white;
   border: none;
-  border-radius: 8%;
+  border-radius: 8px;
   cursor: pointer;
   margin: 0;
+}
+
+.closeSearchedBookDiv {
+  margin-top: 20px;
+}
+
+.closeSearchedBookDiv button {
+  background-color: blue;
+  width: 150px;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0;
+  font-size: larger;
 }
 
 .bookDetails {
@@ -143,31 +159,27 @@ header {
   display: grid;
   grid-template-rows: 1fr 4fr;
   width: 50%;
-  height: 70%;
-  margin-top: 10%;
-  background-color: #1d1d1d;
+  height: 90%;
+  margin-top: 3%;
+  background-color: rgb(19, 19, 19);
 }
 
 .bookDetailsHeading {
   display: grid;
   grid-template-columns: 22fr 1fr;
-  padding-left: 5%;
+  width: 100%;
 }
 
 .bookDetailsHeading .heading {
   text-align: center;
 }
 
-.dontShowBookDetails {
-  display: none;
-}
-
 .closeButton button {
   cursor: pointer;
   position: fixed;
-  border: 1px solid rgb(19, 19, 19);
+  border: none;
   padding: 0.5%;
-  background-color: #1d1d1d;
+  background-color: rgb(19, 19, 19);
   color: white;
 }
 
@@ -187,32 +199,54 @@ header {
 }
 
 .bookDetailsContent div {
-  display: grid;
-  grid-template-rows: 2fr 2fr 2fr 2fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .pagination {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 15fr 1fr;
+  width: 90%;
   column-gap: 50px;
+  margin-bottom: 30px;
+  padding: 3%;
 }
 
-.pagination button {
+.paginationButtonsDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.paginationButtonsDiv button {
   margin: 0;
   padding: 0;
   border: none;
   background-color: rgb(19, 19, 19);
   color: #6395af;
   cursor: pointer;
-  margin-bottom: 30px;
   font-weight: 1000;
 }
 
 .buttonActivated {
-  border-bottom: 2px solid #6395af;
-  font-size: large;
+  font-size: x-large;
 }
 
 .disablePagination {
   display: none;
+}
+
+.paginationPrevButtonDiv,
+.paginationNextButtonDiv {
+  margin: 0;
+  padding: 0;
+}
+
+.paginationPrevButtonDiv button,
+.paginationNextButtonDiv button {
+  background-color: rgb(19, 19, 19);
+  color: #6395af;
+  border: none;
+  border-bottom: 2px solid #6395af;
+  font-size: large;
+  cursor: pointer;
 }

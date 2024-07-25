@@ -1,0 +1,194 @@
+                  {allQuestion && allQuestion.length > 0 ? (
+                    showFilteredResult ? (
+                      filteredQuestion && filteredQuestion.length > 0 ? (
+                        filteredQuestion.map((q, idx) => (
+                          <CTableRow key={idx}>
+                            {showCheck && (
+                              <CTableDataCell>
+                                <input
+                                  type="checkbox"
+                                  className="form-check-input checkboxes"
+                                  id={q._id}
+                                  value={q._id}
+                                  onChange={(e) => handleCheckboxChange(e)}
+                                  // checked={
+                                  //   deleteIds.filter((id) => id == q.id).length > 0 ? true : false
+                                  // }
+                                />
+                              </CTableDataCell>
+                            )}
+                            <CTableHeaderCell className="cursor-pointer">
+                              <span
+                                id={q._id}
+                                onClick={(e) => {
+                                  setDetailModal(true)
+                                  setQuestionId(e.currentTarget.id)
+                                }}
+                                dangerouslySetInnerHTML={{
+                                  __html:
+                                    q.question.length > 100
+                                      ? q.question.substring(0, 100) + '...'
+                                      : q.question,
+                                }}
+                              >
+                                {/* {q.question.length > 100
+                                ? q.question.substring(0, 100) + '...'
+                                : q.question} */}
+                              </span>
+                            </CTableHeaderCell>
+                            <CTableDataCell>{q.usmleStep}</CTableDataCell>
+                            <CTableDataCell>{q.USMLE}</CTableDataCell>
+                            {/* <CTableDataCell>
+                            <img
+                              src={`${API_URL}uploads/${q.image}`}
+                              alt="mcq img"
+                              className="w-6 h-6 rounded-full"
+                            />
+                          </CTableDataCell> */}
+                            <CTableDataCell>{q.correctAnswer}</CTableDataCell>
+                            <CTableDataCell className="flex justify-start items-center">
+                              <CButton
+                                className="text-white bg-[#6261CC] hover:bg-[#4f4ea0] mr-3 my-2"
+                                id={q._id}
+                                onClick={(e) => {
+                                  setViewModal(true)
+                                  setQuestionId(e.currentTarget.id)
+                                }}
+                                title="View"
+                              >
+                                <RiEyeLine className="my-1" />
+                              </CButton>
+                              <CButton
+                                color="info"
+                                className="text-white mr-3 my-2"
+                                id={q._id}
+                                onClick={(e) => {
+                                  setAddModal(true)
+                                  setQuestionId(e.currentTarget.id)
+                                  setErrorr(false)
+                                  setErrorMsg('')
+                                }}
+                              >
+                                <CIcon icon={cilPencil} />
+                              </CButton>
+                              <CButton
+                                color="danger"
+                                className="text-white my-2"
+                                id={q._id}
+                                onClick={(e) => {
+                                  setDeleteModal(true)
+                                  setQuestionId(e.currentTarget.id)
+                                  setErrorr(false)
+                                  setErrorMsg('')
+                                }}
+                              >
+                                <CIcon icon={cilTrash} />
+                              </CButton>
+                            </CTableDataCell>
+                          </CTableRow>
+                        ))
+                      ) : (
+                        <CTableRow>
+                          <CTableDataCell className="text-center" colSpan={6}>
+                            No records found <br />
+                            <CButton color="link" onClick={() => setShowFilteredResult(false)}>
+                              Show All
+                            </CButton>
+                          </CTableDataCell>
+                        </CTableRow>
+                      )
+                    ) : (
+                      allQuestion.map((q, idx) => (
+                        <CTableRow key={idx}>
+                          {showCheck && (
+                            <CTableDataCell>
+                              <input
+                                type="checkbox"
+                                className="form-check-input checkboxes"
+                                id={q._id}
+                                value={q._id}
+                                onChange={(e) => handleCheckboxChange(e)}
+                                // checked={
+                                //   deleteIds.filter((id) => id == q.id).length > 0 ? true : false
+                                // }
+                              />
+                            </CTableDataCell>
+                          )}
+                          <CTableHeaderCell className="cursor-pointer">
+                            <span
+                              id={q._id}
+                              onClick={(e) => {
+                                setDetailModal(true)
+                                setQuestionId(e.currentTarget.id)
+                              }}
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  q.question.length > 100
+                                    ? q.question.substring(0, 100) + '...'
+                                    : q.question,
+                              }}
+                            >
+                              {/* {q.question.length > 100
+                              ? q.question.substring(0, 100) + '...'
+                              : q.question} */}
+                            </span>
+                          </CTableHeaderCell>
+                          <CTableDataCell>{q.usmleStep}</CTableDataCell>
+                          <CTableDataCell>{q.USMLE}</CTableDataCell>
+                          {/* <CTableDataCell>
+                          <img
+                            src={`${API_URL}uploads/${q.image}`}
+                            alt="mcq img"
+                            className="w-6 h-6 rounded-full"
+                          />
+                        </CTableDataCell> */}
+                          <CTableDataCell>{q.correctAnswer}</CTableDataCell>
+                          <CTableDataCell className="flex justify-start items-center">
+                            <CButton
+                              className="text-white bg-[#6261CC] hover:bg-[#4f4ea0] mr-3 my-2"
+                              id={q._id}
+                              onClick={(e) => {
+                                setViewModal(true)
+                                setQuestionId(e.currentTarget.id)
+                              }}
+                              title="View"
+                            >
+                              <RiEyeLine className="my-1" />
+                            </CButton>
+                            <CButton
+                              color="info"
+                              className="text-white mr-3 my-2"
+                              id={q._id}
+                              onClick={(e) => {
+                                setAddModal(true)
+                                setQuestionId(e.currentTarget.id)
+                                setErrorr(false)
+                                setErrorMsg('')
+                              }}
+                            >
+                              <CIcon icon={cilPencil} />
+                            </CButton>
+                            <CButton
+                              color="danger"
+                              className="text-white my-2"
+                              id={q._id}
+                              onClick={(e) => {
+                                setDeleteModal(true)
+                                setQuestionId(e.currentTarget.id)
+                                setErrorr(false)
+                                setErrorMsg('')
+                              }}
+                            >
+                              <CIcon icon={cilTrash} />
+                            </CButton>
+                          </CTableDataCell>
+                        </CTableRow>
+                      ))
+                    )
+                  ) : (
+                    <CTableRow>
+                      <CTableDataCell className="text-center" colSpan={6}>
+                        No Questions Found
+                      </CTableDataCell>
+                    </CTableRow>
+                  )}
