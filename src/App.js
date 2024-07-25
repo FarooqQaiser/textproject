@@ -242,7 +242,7 @@ function App() {
         </>
       ) : (
         <>
-          <div className="books w-screen">
+          <div className="books">
             <div className="listOfBooks">
               {Array.isArray(currentItems) ? (
                 currentItems.map((book) => (
