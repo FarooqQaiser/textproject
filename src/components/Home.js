@@ -6,7 +6,6 @@ import Pagination from "./Pagination";
 export default function Home() {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
   const [searching, setSearching] = useState(false);
   const [bookId, setBookId] = useState(null);
   const [bookTitle, setBookTitle] = useState(null);
@@ -21,6 +20,7 @@ export default function Home() {
   const [showBookDetails, setShowBookDetails] = useState(false);
   const [htmlForBookNotFound, setHtmlForBookNotFound] = useState(null);
 
+  const itemsPerPage = 8;
   useEffect(() => {
     fetch("https://stephen-king-api.onrender.com/api/books")
       .then((response) => response.json())
@@ -55,6 +55,7 @@ export default function Home() {
           setBookTitle(book.Title);
           setBookPublisher(book.Publisher);
         }
+        return "";
       });
       searchedBookNotFound = false;
     } else {
@@ -105,6 +106,7 @@ export default function Home() {
         setBookVillains(villainsString);
         setBookISBN(book.ISBN);
       }
+      return "";
     });
   };
 

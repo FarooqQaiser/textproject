@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import HeaderForSignUpAndLogIn from "./Header";
 import FooterForSignUpAndLogIn from "./Footer";
 
 export default function LogIn() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [searchBook, setsearchBook] = useState("");
+  const loggedIn = false;
+  const searchBook = " ";
 
   return (
     <div>

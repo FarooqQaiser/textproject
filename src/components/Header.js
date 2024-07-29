@@ -1,10 +1,6 @@
 import React from "react";
 
-export default function HeaderForSignUpAndLogIn({
-  loggedIn,
-  searchBook,
-  showAllBooks,
-}) {
+export default function Header({ loggedIn, searchBook, showAllBooks }) {
   return (
     <div className="sticky grid grid-cols-[3fr_7fr] top-0 pb-3 pt-3  mb-10 bg-[#1d1d1d]">
       {loggedIn ? (
