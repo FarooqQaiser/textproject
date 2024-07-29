@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HeaderForSignUpAndLogIn from "./Header";
 import FooterForSignUpAndLogIn from "./Footer";
 
 export default function SignUp() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [searchBook, setsearchBook] = useState("");
   const [firstName, setName] = useState("");
   const [lastName, setEmail] = useState("");
   const [Email, setPassword] = useState("");
   const [Gender, setAbout] = useState("");
+
+  const loggedIn = false;
+  const searchBook = "";
 
   const saveUser = () => {
     const data = { firstName, lastName, Email, Gender };
