@@ -46,16 +46,13 @@ export default function LogIn() {
               />
             </div>
             <div className="flex justify-center">
-              <button
-                // onClick={saveUser}
-                className="mt-3 px-3 py-2 bg-[#06B6D4] font-bold rounded-md"
-              >
-                Login
+              <button className="mt-3 px-3 py-2 bg-[#06B6D4] font-bold rounded-md">
+                <a href="/Home">Login</a>
               </button>
             </div>
           </div>
           <div className="mt-2">
-            <a href="/Home">Already have an account?</a>
+            <a href="/SignUp">Don't have an account?</a>
           </div>
         </div>
       </main>

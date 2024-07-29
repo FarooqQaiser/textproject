@@ -24,6 +24,9 @@ export default function Header({ loggedIn, searchBook, showAllBooks }) {
             >
               Search
             </button>
+            <a href="/LogIn">
+              <button className="bg-blue-800 rounded-md p-3">Logout</button>
+            </a>
           </div>
         </>
       ) : (

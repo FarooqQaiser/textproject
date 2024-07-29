@@ -106,7 +106,7 @@ export default function SignUp() {
             </div>
           </div>
           <div className="mt-2">
-            <a href="/Home">Already have an account?</a>
+            <a href="/LogIn">Already have an account?</a>
           </div>
         </div>
       </main>
