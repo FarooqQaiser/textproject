@@ -1,4 +1,6 @@
 import React from "react";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Pagination({
   totalPages,
@@ -8,24 +10,24 @@ export default function Pagination({
 }) {
   return (
     <>
-      <div className="grid grid-cols-[1fr_2fr_1fr] my-4 justify-center">
-        <div className="flex justify-end">
+      <div className="grid grid-cols-[1fr_1fr_1fr] my-4 justify-center">
+        <div className="flex justify-end mr-4">
           <button
-            className="text-[#6395af] border-b-2 border-[#6395af] text-lg"
+            className="text-[#272727] border-2 p-2 border-[#131313] text-lg rounded-lg hover:bg-[#272727] hover:text-white"
             onClick={renderPreviousPage}
           >
-            Prev
+            <IoIosArrowBack />
           </button>
         </div>
-        <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] ">
           {generateButtonsForPagination(totalPages)}
         </div>
-        <div className="flex justify-start">
+        <div className="flex">
           <button
-            className="text-[#6395af] border-b-2 border-[#6395af] text-lg"
+            className="text-[#272727] border-2 p-2 border-[#131313] text-lg rounded-lg hover:bg-[#272727] hover:text-white"
             onClick={renderNextPage}
           >
-            Next
+            <IoIosArrowForward />
           </button>
         </div>
       </div>

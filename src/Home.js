@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import HeaderForSignUpAndLogIn from "./Header";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -68,7 +69,7 @@ export default function Home() {
     if (searchedBookNotFound) {
       setHtmlForBookNotFound(
         <div className="pb-5 flex justify-center">
-          <h3 className="font-bold text-xl">
+          <h3 className="font-bold text-xl text-black">
             Sorry, searched book is not found, please check spelling and try
             again!
           </h3>
@@ -123,12 +124,12 @@ export default function Home() {
     const buttons = [];
     for (let i = 1; i <= totalPages; i++) {
       const isActive = currentPage === i;
-      const className = isActive ? "text-2xl font-extrabold" : "";
+      const className = isActive ? "bg-[#272727] text-white font-semibold" : "";
       buttons.push(
         <button
           key={i}
           onClick={() => handleCurrentPage(i)}
-          className={`${className} text-[#6395af] text- font-semibold`}
+          className={`${className} text-black font-semibold border-2 border-[#131313] p-2 w-10 h-10 hover:bg-[#272727] hover:text-white rounded-lg`}
         >
           {i}
         </button>
@@ -165,9 +166,9 @@ export default function Home() {
 
       {showBookDetails ? (
         <>
-          <div className="fixed grid grid-rows-[1fr_10fr] mx-[25%] w-1/2 h-4/5 bg-[#6395af]/95 rounded-lg">
+          <div className="fixed grid grid-rows-[1fr_10fr] mx-[25%] w-1/2 h-4/5 bg-[#272727] rounded-lg">
             <div className="grid grid-cols-[22fr_1fr] w-full">
-              <div className="flex items-center justify-center mt-2 text-center text-xl text-[#272727] font-semibold">
+              <div className="flex items-center justify-center mt-2 text-center text-xl text-[#6395af] font-semibold">
                 <h1>Book Details</h1>
               </div>
               <div className="flex justify-end">
@@ -180,58 +181,58 @@ export default function Home() {
               </div>
             </div>
             <div className="ml-5 flex flex-col items-center gap-4 ">
-              <p className="text-xl font-semibold text-[#272727]">
+              <p className="text-xl font-semibold text-[#6395af]">
                 Title of the book:
                 <span className="text-white text-2xl font-bold ml-3 border-b-2 border-white">
                   {bookTitle}
                 </span>
               </p>
               <div className="flex flex-col gap-4 text-left w-full ">
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Published by:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookPublisher}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Published in:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookYear}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book handle:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookHandle}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book number of pages:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookPages}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book villains:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookVillains}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book notes:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookNotes}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book created at:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookCreatedAt}
                   </strong>
                 </p>
-                <p className="text-[#272727]">
+                <p className="text-[#6395af]">
                   Book ISBN:{" "}
-                  <strong className="font-semibold text-[#131313]">
+                  <strong className="font-semibold text-white">
                     {bookISBN}
                   </strong>
                 </p>
@@ -247,45 +248,42 @@ export default function Home() {
 
       {searching ? (
         <>
-          <div className="flex justify-center gap-x-1">
-            {searchedBookNotFound ? (
-              <></>
-            ) : (
-              <>
-                <div className="flex flex-col gap-4 justify-between text-start w-72 h-60 p-5 bg-[#272727] rounded-md">
-                  <h2 className="text-center text-2xl font-semibold">
-                    {" "}
-                    {bookTitle}
-                  </h2>
-                  <p>
-                    Published by: <strong>{bookPublisher}</strong>
-                  </p>
+          <div className="text-center m-5 p-5 bg-[#6395af] rounded-lg">
+            <div className="flex justify-center gap-x-1">
+              {searchedBookNotFound ? (
+                <></>
+              ) : (
+                <>
+                  <div className="flex flex-col gap-4 justify-between text-start w-72 h-60 p-5 bg-[#131313]/90 border-4 border-gray-400 rounded-md hover:bg-[#272727]/90 hover:text-white hover:border-8">
+                    <h2 className="text-center text-2xl font-semibold">
+                      {" "}
+                      {bookTitle}
+                    </h2>
+                    <p>
+                      Published by: <strong>{bookPublisher}</strong>
+                    </p>
+                    <button
+                      className="bg-[#0000FF] p-3 rounded-md"
+                      onClick={() => openBookDetails(bookId)}
+                    >
+                      Open
+                    </button>
+                  </div>
                   <button
-                    className="bg-[#0000FF] p-3 rounded-md"
-                    onClick={() => openBookDetails(bookId)}
+                    className="bg-[#0000FF] p-3 mb-52 rounded-full"
+                    onClick={closeSearchedBookDiv}
                   >
-                    Open
+                    <MdOutlineClose />
                   </button>
-                </div>
-                <button
-                  className="bg-[#0000FF] p-3 mb-52 rounded-full"
-                  onClick={closeSearchedBookDiv}
-                >
-                  <MdOutlineClose />
-                </button>
-              </>
-            )}
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="text-center px-10">
+                </>
+              )}
+            </div>
             <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center gap-x-10 gap-y-10 ">
               {Array.isArray(currentItems) ? (
                 currentItems.map((book) => (
                   <>
                     <div
-                      className="flex flex-col gap-4 justify-between text-start w-72 h-60 p-5 bg-[#272727] rounded-md"
+                      className="flex flex-col gap-4 justify-between text-start w-72 h-60 p-5 bg-[#131313]/90 border-4 border-gray-400 rounded-md hover:bg-[#272727]/90 hover:text-white hover:border-8"
                       key={book.id}
                     >
                       <h2 className="text-center text-2xl font-semibold">
@@ -309,17 +307,61 @@ export default function Home() {
               )}
             </div>
           </div>
-
-          <footer>
+          <div className="mt-10">
             <Pagination
               totalPages={totalPages}
               renderNextPage={renderNextPage}
               renderPreviousPage={renderPreviousPage}
               generateButtonsForPagination={generateButtonsForPagination}
             />
-          </footer>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="text-center m-5 p-5 bg-[#6395af] rounded-lg">
+            <div className="grid grid-cols-[1fr_1fr_1fr_1fr] justify-center gap-x-10 gap-y-10 ">
+              {Array.isArray(currentItems) ? (
+                currentItems.map((book) => (
+                  <>
+                    <div
+                      className="flex flex-col gap-4 justify-between text-start w-72 h-60 p-5 bg-[#131313]/90 border-4 border-gray-400 rounded-md hover:bg-[#272727]/90 hover:text-white hover:border-8"
+                      key={book.id}
+                    >
+                      <h2 className="text-center text-2xl font-semibold">
+                        {" "}
+                        {book.Title}
+                      </h2>
+                      <p>
+                        Published by: <strong>{book.Publisher}</strong>
+                      </p>
+                      <button
+                        className="bg-[#0000FF] p-3 rounded-md"
+                        onClick={() => openBookDetails(book.id)}
+                      >
+                        Open
+                      </button>
+                    </div>
+                  </>
+                ))
+              ) : (
+                <p>No books available</p>
+              )}
+            </div>
+          </div>
+          <div className="mt-10">
+            <Pagination
+              totalPages={totalPages}
+              renderNextPage={renderNextPage}
+              renderPreviousPage={renderPreviousPage}
+              generateButtonsForPagination={generateButtonsForPagination}
+            />
+          </div>
         </>
       )}
+
+      <footer className="w-full -mb-96">
+        <Footer />
+      </footer>
     </>
   );
 }

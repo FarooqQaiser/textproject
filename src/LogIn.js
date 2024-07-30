@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderForSignUpAndLogIn from "./Header";
-import FooterForSignUpAndLogIn from "./Footer";
+import Footer from "./Footer";
 
 export default function LogIn() {
   const loggedIn = false;
@@ -12,7 +12,7 @@ export default function LogIn() {
         <HeaderForSignUpAndLogIn loggedIn={loggedIn} searchBook={searchBook} />
       </header>
       <main className="flex justify-center">
-        <div className="px-4 pl-10 py-4 w-2/5 h-1/2 bg-[#1d1d1d] rounded-3xl">
+        <div className="flex flex-col items-center py-4 w-1/3 h-1/2 bg-[#1d1d1d] rounded-3xl">
           <p className=" text-2xl text-white">Login</p>
           <div className="grid gap-1 mt-4 justify-start">
             <div className="flex flex-col">
@@ -56,8 +56,8 @@ export default function LogIn() {
           </div>
         </div>
       </main>
-      <footer>
-        <FooterForSignUpAndLogIn />
+      <footer className="mt-28">
+        <Footer />
       </footer>
     </div>
   );

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import HeaderForSignUpAndLogIn from "./Header";
-import FooterForSignUpAndLogIn from "./Footer";
+import Footer from "./Footer";
 
 export default function SignUp() {
   const [firstName, setName] = useState("");
   const [lastName, setEmail] = useState("");
   const [Email, setPassword] = useState("");
-  const [Gender, setAbout] = useState("");
+  const [Gender, setGender] = useState("");
 
   const loggedIn = false;
   const searchBook = "";
@@ -27,13 +27,18 @@ export default function SignUp() {
     });
   };
 
+  const onChangeValue = (event) => {
+    setGender(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
     <>
       <header>
         <HeaderForSignUpAndLogIn loggedIn={loggedIn} searchBook={searchBook} />
       </header>
       <main className=" flex justify-center">
-        <div className="px-4 pl-10 py-4 w-2/5 h-1/2 bg-[#1d1d1d] rounded-3xl">
+        <div className="flex flex-col items-center py-4 w-1/3 h-1/2 bg-[#1d1d1d] rounded-3xl">
           <p className=" text-2xl text-white">Register</p>
           <div className="grid gap-1 mt-4 justify-start">
             <div className="flex flex-col">
@@ -81,20 +86,23 @@ export default function SignUp() {
                 }}
               />
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="about" className="text-[#6796AF]">
-                Gender
-              </label>
-              <textarea
-                className="mt-1 w-96 h-32 p-3 bg-inherit border-b-2 border-[#6796AF]  focus:border-none"
-                type="text"
-                name="Gender"
-                id="Gender"
-                value={Gender}
-                onChange={(e) => {
-                  setAbout(e.target.value);
-                }}
-              />
+            <div
+              onChange={onChangeValue}
+              className="flex flex-row gap-10 justify-center"
+            >
+              <div className="flex flex-row gap-2 items-center text-[#6796AF]">
+                Male
+                <input type="radio" value={"male"} name="gender" className="" />
+              </div>
+              <div className="flex flex-row gap-2 items-center text-[#6796AF]">
+                Female
+                <input
+                  type="radio"
+                  value={"female"}
+                  name="gender"
+                  className=""
+                />
+              </div>
             </div>
             <div className="flex justify-center">
               <button
@@ -110,8 +118,8 @@ export default function SignUp() {
           </div>
         </div>
       </main>
-      <footer>
-        <FooterForSignUpAndLogIn />
+      <footer className="mt-10">
+        <Footer />
       </footer>
     </>
   );

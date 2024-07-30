@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header({ loggedIn, searchBook, showAllBooks }) {
   return (
@@ -6,7 +7,7 @@ export default function Header({ loggedIn, searchBook, showAllBooks }) {
       {loggedIn ? (
         <>
           <div
-            className="flex justify-start cursor-pointer"
+            className="flex justify-start cursor-pointer aurthor"
             onClick={showAllBooks}
           >
             <h1 className="pl-10 text-3xl font-bold">Stephen King Books</h1>
@@ -24,9 +25,10 @@ export default function Header({ loggedIn, searchBook, showAllBooks }) {
             >
               Search
             </button>
-            <a href="/LogIn">
+            <Link to="/LogIn">
+              {" "}
               <button className="bg-blue-800 rounded-md p-3">Logout</button>
-            </a>
+            </Link>
           </div>
         </>
       ) : (
@@ -39,20 +41,20 @@ export default function Header({ loggedIn, searchBook, showAllBooks }) {
           <div className=" w-full flex justify-end">
             <div className="grid grid-flow-col gap-4 items-center pr-10">
               <div className="flex w-16 h-10 justify-center">
-                <a
-                  href="/LogIn"
+                <Link
+                  to="/LogIn"
                   className="flex justify-center w-full bg-blue-800 rounded-md"
                 >
                   <button>Login</button>
-                </a>
+                </Link>
               </div>
               <div className="flex w-16 h-10 justify-center">
-                <a
-                  href="/SignUp"
+                <Link
+                  to="/SignUp"
                   className="flex justify-center w-full bg-blue-800 rounded-md"
                 >
                   <button>Signup</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
